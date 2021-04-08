@@ -12,6 +12,24 @@ exports.handler = async (event, context) => {
     if(id) {
       try {
          const product = await airtable.retrieve(id)
+          const productData = {
+            id,
+            stock: product.fields.stock,
+            price: product.fields.price,
+            shipping: product.fields.shipping,
+            colors: product.fields.colors,
+            category: product.fields.category,
+            images: product.fields.images,
+            reviews: product.fields.reviews,
+            stars: product.fields.stars,
+            name: product.fields.name,
+            description: product.fields.description,
+            company: product.fields.company,
+
+          }
+          
+          
+          
          if(product.error) {
          return {
            statusCode: 404,
@@ -21,7 +39,7 @@ exports.handler = async (event, context) => {
          }
              return {
           statusCode: 200,
-          body: JSON.stringify(product)
+          body: JSON.stringify(productData)
 
 }
       } catch (error) {
