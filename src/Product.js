@@ -30,7 +30,7 @@ if(loading) {
     )
 }
 // const {fields} = product
-const {name, description, price, images, company} = product
+const {name, description, price, images, company } = product
 console.log(name)
     return (
         <section className="section section-center">
